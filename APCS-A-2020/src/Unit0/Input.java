@@ -7,7 +7,6 @@ package Unit0;
 //Class -
 //Lab  -
 
-import static java.lang.System.*;
 import java.util.Scanner;
 
 public class Input

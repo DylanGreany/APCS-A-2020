@@ -1,8 +1,8 @@
 package Unit2;
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
+//Name - dylan g
+//Date - 2/4/20
+//Class - apcsa
 //Lab  - 
 
 public class TrapRunner
