@@ -48,13 +48,15 @@ public class Distance
 	
 	public void print()
 	{
-		System.out.print(distance);
+		System.out.print("\n\n");
+		
+		
 	}
 	
 	//complete print or the toString
 
 	public String toString()
 	{
-		return "";
+		return "the distance = " + distance;
 	}
 }
