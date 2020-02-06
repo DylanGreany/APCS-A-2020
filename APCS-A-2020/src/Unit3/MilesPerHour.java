@@ -19,19 +19,24 @@ public class MilesPerHour
 	public MilesPerHour()
 	{
 		setNums(0,0,0);
-		mph=0.0;
+		mph = 0.0;
 	}
 
 	public MilesPerHour(int dist, int hrs, int mins)
 	{
+		setNums(dist,hrs,mins);
 	}
 
 	public void setNums(int dist, int hrs, int mins)
 	{
+		distance = dist;
+		hours = hrs;
+		minutes = mins;
 	}
 
 	public void calcMPH()
 	{
+		mph = (double) distance / (hours + minutes/60.0);
 	}
 
 	public void print()
@@ -42,6 +47,6 @@ public class MilesPerHour
 	
 	public String toString()
 	{
-		return "";
+		return "You traveled at " + mph + "  miles per hour";
 	}
 }
