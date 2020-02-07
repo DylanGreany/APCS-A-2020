@@ -33,7 +33,7 @@ public class DistanceRunner
 		test.calcDistance();
 		test.getDistance();
 		System.out.println(test);
-		
-			
 	}
 }
+
+

@@ -2,10 +2,10 @@ package Unit3;
 //(c) A+ Computer Science 
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Dylan G
+//Date - 2/5/20
+//Class - P2
+//Lab  - distance
 
 import java.util.Scanner; 
 import static java.lang.System.*;
@@ -49,14 +49,14 @@ public class Distance
 	public void print()
 	{
 		System.out.print("\n\n");
-		
-		
+		System.out.print("the distance is " + distance);
 	}
 	
 	//complete print or the toString
 
 	public String toString()
 	{
+		System.out.print("\n\n");
 		return "the distance = " + distance;
 	}
 }

@@ -21,10 +21,8 @@ public class MPHRunner
 
 		out.print("Enter the distance :: ");
 		int dist = keyboard.nextInt();
-
 		out.print("Enter the hours :: ");
 		int hrs = keyboard.nextInt();
-
 		out.print("Enter the minutes :: ");
 		int mins = keyboard.nextInt();
 
@@ -36,10 +34,20 @@ public class MPHRunner
 		
 		out.print("Enter the distance :: ");
 		dist = keyboard.nextInt();
-
 		out.print("Enter the hours :: ");
 		hrs = keyboard.nextInt();
-
+		out.print("Enter the minutes :: ");
+		mins = keyboard.nextInt();
+		
+		test.setNums(dist, hrs, mins);
+		test.calcMPH();
+		System.out.println(test);
+		
+		
+		out.print("Enter the distance :: ");
+		dist = keyboard.nextInt();
+		out.print("Enter the hours :: ");
+		hrs = keyboard.nextInt();
 		out.print("Enter the minutes :: ");
 		mins = keyboard.nextInt();
 		
