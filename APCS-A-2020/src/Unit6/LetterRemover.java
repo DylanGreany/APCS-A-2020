@@ -30,16 +30,16 @@ public class LetterRemover
 	public String removeLetters()
 	{
 		String cleaned = sentence;
-		int loc = sentence.indexOf(lookFor);
+		int loc = cleaned.indexOf(lookFor);
 		while (loc != -1) {
-			cleaned = sentence.substring(0, loc) + sentence.substring(loc + 1, sentence.length() - 1);
-			loc = sentence.indexOf(lookFor);
+			cleaned = cleaned.substring(0, loc) + cleaned.substring(loc + 1, cleaned.length());
+			loc = cleaned.indexOf(lookFor);
 		}
-		return cleaned;
+		return cleaned; 
 	}
 
 	public String toString()
 	{
-		return sentence + " - letter to remove " + lookFor;
+		return sentence + " - letter to remove " + lookFor + "\n" + removeLetters();
 	}
 }

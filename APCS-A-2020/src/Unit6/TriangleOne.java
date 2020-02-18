@@ -16,13 +16,20 @@ public class TriangleOne
 
 	public TriangleOne(String s)
 	{
+		setWord("hippo");
 	}
 
 	public void setWord(String s)
 	{
+		word = s;
 	}
 
 	public void print( )
 	{
+		int i = word.length();
+		while (i > -1) {
+			System.out.println(word.substring(0, i));
+			i = i - 1;
+		}
 	}
 }
