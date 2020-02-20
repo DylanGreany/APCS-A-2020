@@ -20,7 +20,7 @@ public class Review {
   
   static{
     try {
-      Scanner input = new Scanner(new File("cleanSentiment.csv"));
+      Scanner input = new Scanner(new File("APCS-A-2020/src/ConsumerLab/cleanSentiment.csv"));
       while(input.hasNextLine()){
         String[] temp = input.nextLine().split(",");
         sentiment.put(temp[0],Double.parseDouble(temp[1]));
@@ -35,7 +35,7 @@ public class Review {
   
   //read in the positive adjectives in postiveAdjectives.txt
      try {
-      Scanner input = new Scanner(new File("positiveAdjectives.txt"));
+      Scanner input = new Scanner(new File("APCS-A-2020/src/ConsumerLab/positiveAdjectives.txt"));
       while(input.hasNextLine()){
         String temp = input.nextLine().trim();
         System.out.println(temp);
@@ -49,7 +49,7 @@ public class Review {
  
   //read in the negative adjectives in negativeAdjectives.txt
      try {
-      Scanner input = new Scanner(new File("negativeAdjectives.txt"));
+      Scanner input = new Scanner(new File("APCS-A-2020/src/ConsumerLab/negativeAdjectives.txt"));
       while(input.hasNextLine()){
         negAdjectives.add(input.nextLine().trim());
       }
@@ -153,19 +153,25 @@ public class Review {
   public static double totalSentiment(String filename)
   {
     // read in the file contents into a string using the textToString method with the filename
-
+	  String reviewFile = textToString(filename);
+	  
     // set up a sentimentTotal variable
+	  double sentimentTotal = 0;
+	  String tempWord = "";
 
     // loop through the file contents 
-
-       // find each word
-       // add in its sentimentVal
+	  for (int i = 0; i < reviewFile.length(); i++) {
+		// find each word
+		  if (reviewFile.charAt(i) == ' ' || i + 1 == reviewFile.length()) {
+			// add in its sentimentVal
+			  sentimentTotal = sentimentTotal + sentimentVal(tempWord);
+			  tempWord = "";
+		  }
+		  else {
+			  tempWord = tempWord + reviewFile.substring(i, i+1);
+		  }
+	  }         
        // set the file contents to start after this word
-   
-   
-
-
-
    return sentimentTotal; 
   }
 
@@ -176,14 +182,50 @@ public class Review {
   public static int starRating(String filename)
   {
     // call the totalSentiment method with the fileName
-
+	double sentimentTotal = totalSentiment(filename);
     // determine number of stars between 0 and 4 based on totalSentiment value 
-    int stars;
+    int stars = 0;
     // write if statements here
-
-
-  
+    if (sentimentTotal > 25)
+    	stars = 4;
+    else if (sentimentTotal >20)
+    	stars = 3;
+    else if (sentimentTotal > 15)
+    	stars = 2;
+    else if (sentimentTotal > 10)
+    	stars = 1;
+    else if (sentimentTotal > 5)
+    	stars = 0;
     // return number of stars
     return stars; 
+  }
+  
+  
+  public static String fakeReview(String fileName, boolean posNeg) {
+	String reviewFile = textToString(fileName);
+	String tempWord = "";
+	String newText = "";
+	
+	for (int i = 0; i < reviewFile.length(); i++) {
+		if (reviewFile.charAt(i) == ' ' || i + 1 == reviewFile.length()) {
+			if (tempWord.charAt(0) == '*') {
+				String newAdj = "";
+				if (posNeg == true)
+					newAdj = randomPositiveAdj();
+				else
+					newAdj = randomNegativeAdj();
+				newText = newText + newAdj + getPunctuation(tempWord) + " ";
+				tempWord = "";
+			}
+			else {
+				newText = newText + tempWord + " ";
+				tempWord = "";
+			}
+		}
+		else {
+			tempWord = tempWord + reviewFile.substring(i, i+1);
+		}
+	}
+	return newText;
   }
 }
