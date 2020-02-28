@@ -55,9 +55,12 @@ public class Card
 		return faceVal;
 	}
 
-	public boolean equalsCard() 
+	public boolean equalsCard(Card other) 
 	{
-		if ()
+		if ((this.suit == other.suit) && (this.faceVal == other.faceVal) && (this.rank == other.rank)) {
+			return true;
+		}
+		return false;
 	}
   	//toString
 	
