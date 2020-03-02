@@ -15,7 +15,7 @@ class Deck{
 	
 	private List<Card> cards;
 	private int top;
-
+	private int size;
 	//make a Deck constructor
 	public Deck() {
 		
@@ -33,12 +33,26 @@ class Deck{
 				cards.add(new Card(SUITS[s], f));
 			}
 		}
+		size = cards.size();
+		top = size - 1;
+		//shuffle();
 	}
    
    //make a dealCard() method that returns the top card
    public Card dealCard() {
-	   return cards.get(0);
+	   Card topCard = null;
+	   if (cards.size() == 0) {
+		   topCard = cards.get(top);
+	   }
+	   else {
+		   return topCard;
+	   }
+	   top = top - 1;
+	   size = size - 1;
+	   return topCard;
    }
+   
+  
    //write a shuffle() method
    	//use Colletions.shuffle
    	//reset the top card 
