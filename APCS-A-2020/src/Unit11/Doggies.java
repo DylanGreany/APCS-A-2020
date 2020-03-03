@@ -21,7 +21,7 @@ public class Doggies
 		//put a new Dog in the array at spot
 		Dog newDog = new Dog(age, name);
 		//make sure spot is in bounds		
-		if (spot > 0 && spot < pups.length) {
+		if (spot >= 0 && spot < pups.length) {
 			pups[spot] = newDog;
 		}
 	}
@@ -30,7 +30,7 @@ public class Doggies
 	{
 		int old = 0;
 		for (int i = 1; i < pups.length; i++) {
-			if(pups[i].getAge() < pups[i - 1].getAge()) {
+			if(pups[i].getAge() > pups[i - 1].getAge()) {
 				old = i;
 			}
 		}
@@ -40,7 +40,7 @@ public class Doggies
 	public String getNameOfYoungest()
 	{
 		int old = 0;
-		for (int i = 1; i < pups.length; i++) {
+		for (int i = 1; i > pups.length; i++) {
 			if(pups[i].getAge() > pups[i - 1].getAge()) {
 				old = i;
 			}

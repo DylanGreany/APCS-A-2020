@@ -8,45 +8,73 @@ import static java.lang.System.*;
 class Rational implements Comparable<Rational>
 {
 	//add two instance variables
-
+	
+	private int Numerator, Denominator;
+	
 	//write two constructors
-
+	
+	public Rational() 
+	{
+		setRational(1,1);
+	}
+	
+	public Rational(int num, int den)
+	{
+		setRational(num, den);
+	}
 
 	//write a setRational method
 	
+	public void setRational(int num, int den) 
+	{
+		Numerator = num;
+		Denominator = den;
+	}
 
 	//write  a set method for numerator and denominator
 
+	public void setNumerator(int num)
+	{
+		Numerator = num;
+	}
+	
+	public void setDenominator(int den)
+	{
+		Denominator = den;
+	}
 	
 	public void add(Rational  other)
-	{
-		//num1/den1 + num2/den2 
-		//new numerator = (num1 * den2 + num2 * den1)
-		//new denominator = (den1 * den2)
+	{	
+		int newNum = (Numerator * other.getDenominator() + other.getNumerator() * Denominator);
+		int newDen = (Denominator * other.getDenominator());
 		
-		
-
+		Numerator = newNum;
+		Denominator = newDen;
 
 		reduce();
 	}
 
 	private void reduce()
 	{
-
-
-
+		int gcd = gcd(Numerator, Denominator);
+		Numerator = Numerator/gcd;
+		Denominator = Denominator/gcd;
 	}
 
 	private int gcd(int numOne, int numTwo)
 	{
-
+		int min = Math.min(numOne, numTwo);
+		for (int i = min; i > 1; i--) {
+			if (numOne % i == 0 && numTwo % i == 0) 
+				return i;
+		}
 
 		return 1;
 	}
 
 	public Object clone ()
 	{
-		return "";
+		return this;
 	}
 
 
@@ -54,19 +82,36 @@ class Rational implements Comparable<Rational>
 
 	//write get methods for numerator and denominator
 	
+	public int getNumerator()
+	{
+		return Numerator;
+	}
+	
+	public int getDenominator()
+	{
+		return Denominator;
+	}
 	
 	public boolean equals( Object obj)
 	{
-
-
+		Rational OBJ = (Rational)obj;
+		double val1 = this.getNumerator() / this.getDenominator();
+		double val2 = OBJ.getNumerator() / OBJ.getNumerator();
+		
+		if (val1 == val2) {
+			return true;
+		}
 		return false;
 	}
 
 	public int compareTo(Rational other)
 	{
-
-
-		return -1;
+		double val1 = this.getNumerator() / this.getDenominator();
+		double val2 = other.getNumerator() / other.getNumerator();
+		if (val1 > val2) {
+			return -1;
+		}
+		return 1;
 	}
 
 
@@ -74,5 +119,9 @@ class Rational implements Comparable<Rational>
 	
 	//write  toString() method
 	
+	public String toString()
+	{
+		return Numerator + "/" + Denominator;
+	}
 	
 }
