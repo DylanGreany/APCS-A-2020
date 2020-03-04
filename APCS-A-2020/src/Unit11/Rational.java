@@ -94,24 +94,17 @@ class Rational implements Comparable<Rational>
 	
 	public boolean equals( Object obj)
 	{
-		Rational OBJ = (Rational)obj;
-		double val1 = this.getNumerator() / this.getDenominator();
-		double val2 = OBJ.getNumerator() / OBJ.getNumerator();
+		Rational other = (Rational)obj;
+		return (double)other.getNumerator()/other.getDenominator() == (double)this.getNumerator()/this.getDenominator();
 		
-		if (val1 == val2) {
-			return true;
-		}
-		return false;
 	}
 
 	public int compareTo(Rational other)
 	{
-		double val1 = this.getNumerator() / this.getDenominator();
-		double val2 = other.getNumerator() / other.getNumerator();
-		if (val1 > val2) {
+		if ((double)this.getNumerator()/this.getDenominator() > (double)other.getNumerator()/other.getDenominator())
+			return 1;
+		else
 			return -1;
-		}
-		return 1;
 	}
 
 
