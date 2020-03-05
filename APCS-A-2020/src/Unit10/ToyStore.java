@@ -19,22 +19,38 @@ public class ToyStore
 
 	public void loadToys( String toys )
 	{
+		for (int i = 0; i < toys.length(); i++) {
+			
+		}
 	}
   
   	public Toy getThatToy( String nm )
   	{
+  		int count;
+  		for (int i = 0; i < toyList.size(); i++) {
+  			if (nm.equals(toyList.get(i))) {
+  				count++;
+  				Toy.setCount(count);
+  			}
+  		}
   		return null;
   	}
   
+  	
+  	//ex
   	public String getMostFrequentToy()
   	{
   		return "";
   	}  
   
+  	
+  	//ex
   	public void sortToysByCount()
   	{
   	}  
   	  
+  	
+  	
 	public String toString()
 	{
 	   return "";
