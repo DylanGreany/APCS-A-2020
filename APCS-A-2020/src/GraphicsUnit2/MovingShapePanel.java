@@ -27,6 +27,7 @@ public class MovingShapePanel extends JPanel implements Runnable
 
 		//refer sh to a new Shape
 
+		sh = new Shape(200, 400, 50, 50, Color.blue, 5, 5);
 
 		new Thread(this).start();
 	}
@@ -52,9 +53,13 @@ public class MovingShapePanel extends JPanel implements Runnable
 		
 		if(!(sh.getX()>=10 && sh.getX()<=730))
 		{
-			sh.setXSpeed(-sh.getXSpeed());
+			sh.setxSpeed(-1 * sh.getxSpeed());
 		}
-		*/
+
+		if(!(sh.getY()>=10 && sh.getY()<=730))
+		{
+			sh.setySpeed(-1 * sh.getySpeed());
+		}
 
 		//add code to handle the top and bottom walls
 

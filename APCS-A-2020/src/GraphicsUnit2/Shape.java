@@ -69,9 +69,10 @@ public class Shape
 
    public void moveAndDraw(Graphics window)
    {
-    	window.setColor(color);
+    	draw(window, color.white);
     	xPos += xSpeed;
     	yPos += ySpeed;
+    	draw(window);
    }
 
    //add in set and get methods for xPos, yPos, xSpeed, and ySpeed
@@ -81,7 +82,7 @@ public class Shape
    }
    public void setX( int x )
    {
-   		xPos = x;
+   		this.xPos = x;
    }
 
    public int getY()
@@ -90,7 +91,7 @@ public class Shape
    }
    public void setY( int y )
    {
-   		yPos = y;
+   		this.yPos = y;
    }
    
    public int getxSpeed()
@@ -99,7 +100,7 @@ public class Shape
    }
    public void setxSpeed( int xSpd )
    {
-	   xSpeed = xSpd;
+	   this.xSpeed = xSpd;
    }
    
    public int getySpeed()
@@ -108,7 +109,7 @@ public class Shape
    }
    public void setySpeed( int ySpd )
    {
-	   ySpeed = ySpd;
+	   this.ySpeed = ySpd;
    }
    
    
