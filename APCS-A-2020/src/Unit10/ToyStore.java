@@ -15,22 +15,29 @@ public class ToyStore
 
 	public ToyStore()
 	{
+		toyList = new ArrayList<Toy>();
 	}
 
 	public void loadToys( String toys )
 	{
-		for (int i = 0; i < toys.length(); i++) {
-			
+		String[] list = toys.split(" ");
+		for (String i : list) {
+			Toy new1 = getThatToy(i);
+			if (new1 != null) {
+				new1.setCount(new1.getCount()+1);
+			}
+			else {
+				toyList.add(new Toy(i));
+			}
 		}
+		
 	}
   
   	public Toy getThatToy( String nm )
   	{
-  		int count;
-  		for (int i = 0; i < toyList.size(); i++) {
-  			if (nm.equals(toyList.get(i))) {
-  				count++;
-  				Toy.setCount(count);
+  		for (Toy i : toyList) {
+  			if(i.getName().equals(nm)) {
+  	  				return i;
   			}
   		}
   		return null;
@@ -53,6 +60,10 @@ public class ToyStore
   	
 	public String toString()
 	{
-	   return "";
+		String output = "";
+		for (Toy toy : toyList) {
+			output += toy + ", ";
+		}
+		return output;
 	}
 }
