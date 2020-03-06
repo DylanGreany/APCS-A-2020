@@ -14,9 +14,10 @@ public class Toy
 	{
 	}
 
-	public Toy( String nm )
+	public Toy( String nm, int cnt )
 	{
 		setName(nm);
+		setCount(cnt);
 	}
 	
 	public int getCount()

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import static java.lang.System.*;
 
-public class ToyStore
+public class ToyStore1
 {
 	private ArrayList<Toy> toyList;
 
-	public ToyStore()
+	public ToyStore1()
 	{
 		toyList = new ArrayList<Toy>();
 	}
@@ -23,11 +23,13 @@ public class ToyStore
 		String[] list = toys.split(" ");
 		for (String i : list) {
 			Toy new1 = getThatToy(i);
-			if (new1 != null) {
-				new1.setCount(new1.getCount()+1);
+			if (new1 == null) {
+				toyList.add(new Toy(i, 1));
+				
 			}
 			else {
-				toyList.add(new Toy(i));
+				int count = new1.getCount();
+				new1.setCount(count + 1);
 			}
 		}
 		
@@ -35,9 +37,9 @@ public class ToyStore
   
   	public Toy getThatToy( String nm )
   	{
-  		for (Toy i : toyList) {
-  			if(i.getName().equals(nm)) {
-  	  				return i;
+  		for (Toy a : toyList) {
+  			if(a.getName().equals(nm)) {
+  	  			return a;
   			}
   		}
   		return null;
@@ -56,7 +58,10 @@ public class ToyStore
   	{
   	}  
   	  
-  	
+  	public String myName() {
+  		System.out.println("Dylan Greany");
+  		return null;
+  	}
   	
 	public String toString()
 	{
