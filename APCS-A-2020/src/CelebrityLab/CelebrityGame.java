@@ -97,8 +97,14 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		Celebrity add = new Celebrity(name, guess);
-		celebGameList.add(add);		
+		Celebrity currentCeleb = new Celebrity(name, guess);
+		if (type.equals("Literature"))	{
+			currentCeleb = new LiteratureCelebrity(name, guess);
+		}
+		else if (type.equals("Music")) {
+			currentCeleb = new MusicCelebrity(name, guess);
+		}
+		this.celebGameList.add(currentCeleb);
 	}
 
 	/**
@@ -124,11 +130,30 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
-		clue = clue.trim();
-		if (clue.length() < 10)
-			return false;
-		else 
-			return true;
+		boolean validClue = false;
+		if (clue.trim().length() >= 10) {
+			validClue = true;
+			if (type.equalsIgnoreCase("literature")) {
+				String[] temp = clue.split(",");
+				if (temp.length > 1) {
+					validClue = true;
+				}
+				else {
+					validClue = false;
+				}
+			}
+			else if (type.equalsIgnoreCase("music")) {
+				String[] temp = clue.split(",");
+				if (temp.length > 1) {
+					validClue = true;
+				}
+				else {
+					validClue = false;
+				}
+			}
+		//You will need to add an else if condition here fo or your subclass
+		}
+		return validClue;
 	}
 
 	/**
