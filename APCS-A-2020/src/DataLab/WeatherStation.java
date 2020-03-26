@@ -30,6 +30,10 @@ public class WeatherStation {
       return name;
    }
    
+   public double getLat() {
+	   return lat;
+   }
+   
    public Observation currentWeather() {
 	   DataSource ds1 = DataSource.connect("http://weather.gov/xml/current_obs/" + id + ".xml"); 
 	   Observation ob1 = ds1.fetch(Observation.class, "weather", "temp_f", "wind_degrees");

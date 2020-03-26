@@ -22,14 +22,12 @@ public class ToyStore1
 	{
 		String[] list = toys.split(" ");
 		for (String i : list) {
-			Toy new1 = getThatToy(i);
-			if (new1 == null) {
-				toyList.add(new Toy(i, 1));
-				
+			Toy toy = getThatToy(i);
+			if (toy != null) {
+				toy.setCount(toy.getCount()+1);
 			}
 			else {
-				int count = new1.getCount();
-				new1.setCount(count + 1);
+				toyList.add(new Toy(i));
 			}
 		}
 		
@@ -49,18 +47,36 @@ public class ToyStore1
   	//ex
   	public String getMostFrequentToy()
   	{
-  		return "";
+  		String name = "";
+		double max = Integer.MIN_VALUE;
+		for(Toy x: toyList)
+		{
+			if(max < x.getCount())
+			{
+				max = x.getCount();
+				name = x.getName();
+			}
+		}
+		return name;
   	}  
   
   	
   	//ex
   	public void sortToysByCount()
   	{
+  		ArrayList<Toy> sorted = new ArrayList<Toy>();
+  		while (toyList.size() > 0) {
+  			Toy biggestCountToy = getThatToy(getMostFrequentToy());
+  			toyList.remove(biggestCountToy);
+  			sorted.add(biggestCountToy);
+  		}
+  		
+  		toyList = sorted;
   	}  
   	  
   	public String myName() {
   		System.out.println("Dylan Greany");
-  		return null;
+  		return "Dylan Greany";
   	}
   	
 	public String toString()

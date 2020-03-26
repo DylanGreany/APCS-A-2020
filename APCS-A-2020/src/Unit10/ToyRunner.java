@@ -9,7 +9,7 @@ public class ToyRunner
 {
 	public static void main(String[] args)
 	{
-		Toy test = new Toy("", 0);
+		Toy test = new Toy("");
 		
 		test.setCount(1);
 		test.setName("sorry");
