@@ -93,10 +93,10 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		for(int i = 0; i < selectedCards.size(); i++){
-			int out = selectedCards.get(i).intValue();
+			int one = selectedCards.get(i).intValue();
 			for(int n = i+1; n < selectedCards.size(); n++){
-				int close = selectedCards.get(n).intValue();
-				if(cardAt(out).pointValue() + cardAt(close).pointValue() == 11){
+				int two = selectedCards.get(n).intValue();
+				if(cardAt(one).pointValue() + cardAt(two).pointValue() == 11){
 					return true;
 				}
 			}
